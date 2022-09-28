@@ -3,12 +3,12 @@ kind: ConfigMap
 metadata:
   creationTimestamp: null
   name: traefik-helm-chart-value-overrides
-  namespace: traefik-v2
+  namespace: traefik
 data:
   values.yaml: |-  
     # Default values for Traefik
     image:
-      name: traefik-v2
+      name: traefik
       # defaults to appVersion
       tag: ""
       pullPolicy: IfNotPresent
