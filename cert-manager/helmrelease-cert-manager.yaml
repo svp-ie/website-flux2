@@ -19,4 +19,4 @@ spec:
       - kind: ConfigMap
         name: cert-manager-helm-chart-value-overrides
         namespace: cert-manager
-        key: values.yaml # This is the default, but best to be explicit for clarity
+        valuesKey: values.yaml # This is the default, but best to be explicit for clarity
