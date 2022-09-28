@@ -15,7 +15,7 @@ spec:
     interval: 15m
     timeout: 5m
     releaseName: cert-manager
-    valuesFiles:
+    valuesFrom:
       - kind: ConfigMap
         name: cert-manager-helm-chart-value-overrides
         namespace: cert-manager
