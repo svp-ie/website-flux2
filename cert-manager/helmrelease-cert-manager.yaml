@@ -6,17 +6,17 @@ metadata:
 spec:
     chart:
         spec:
-        chart: cert-manager
-        version: 1.6.x
-        sourceRef:
-            kind: HelmRepository
-            name: jetstack
-            namespace: flux-system
+            chart: cert-manager
+            version: 1.6.x
+            sourceRef:
+                kind: HelmRepository
+                name: jetstack
+                namespace: flux-system
     interval: 15m
     timeout: 5m
     releaseName: cert-manager
-    valuesFrom:
-      - configMapKeyRef:
-            name: cert-manager-helm-chart-value-overrides
-            namespace: cert-manager
-            key: values.yaml # This is the default, but best to be explicit for clarity
+    valuesFiles:
+      - kind: ConfigMap
+        name: cert-manager-helm-chart-value-overrides
+        namespace: cert-manager
+        key: values.yaml # This is the default, but best to be explicit for clarity
