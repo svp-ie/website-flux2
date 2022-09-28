@@ -1,22 +1,22 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-name: cert-manager
-namespace: cert-manager
-spec:
-chart:
-    spec:
-    chart: cert-manager
-    version: 1.6.x
-    sourceRef:
-        kind: HelmRepository
-        name: jetstack
-        namespace: flux-system
-interval: 15m
-timeout: 5m
-releaseName: cert-manager
-valuesFrom:
-- configMapKeyRef:
-    name: cert-manager-helm-chart-value-overrides
+    name: cert-manager
     namespace: cert-manager
-    key: values.yaml # This is the default, but best to be explicit for clarity
+spec:
+    chart:
+        spec:
+        chart: cert-manager
+        version: 1.6.x
+        sourceRef:
+            kind: HelmRepository
+            name: jetstack
+            namespace: flux-system
+    interval: 15m
+    timeout: 5m
+    releaseName: cert-manager
+    valuesFrom:
+      - configMapKeyRef:
+            name: cert-manager-helm-chart-value-overrides
+            namespace: cert-manager
+            key: values.yaml # This is the default, but best to be explicit for clarity
