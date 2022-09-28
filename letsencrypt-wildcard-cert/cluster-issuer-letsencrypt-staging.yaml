@@ -1,20 +1,20 @@
 apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
+kind: Issuer
 metadata:
   name: letsencrypt-staging
 spec:
   acme:
-    email: batman@example.com
+    email: rob.killilea@svp.ie
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-staging
     solvers:
     - selector:
         dnsZones:
-          - "example.com"
+          - "dev.svp.ie"
       dns01:
         cloudflare:
-          email: batman@example.com
+          email: rob.killilea@svp.ie
           apiTokenSecretRef:
-            name: cloudflare-api-token-secret
+            name: cf-api-token-secret
             key: api-token
